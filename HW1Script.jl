@@ -82,3 +82,19 @@ cost = [out[1] for out in output]
 YUK = [out[2] for out in output]
 @show cost;
 @show YUK;
+
+#=
+plot(cost, YUK, seriestype=:scatter, label="calculated output")
+hline!([20], color=:red, linestyle=:dash, label="effluent standard")
+xlabel!("Cost (dollars)")
+ylabel!("YUK in Stream (Kg)")
+title!("YUK in stream vs Cost associated")
+=#
+
+plot(x2, YUK, seriestype=:scatter, label="X2")
+plot!(x1, YUK, seriestype=:scatter, label="X1", color=:green)
+hline!([20], color=:red, linestyle=:dash, label="effluent standard")
+xlabel!("Effluent diverted from stream (m^3)")
+ylabel!("YUK in Stream (Kg)")
+title!("YUK in stream vs effluent diverted from stream")
+
