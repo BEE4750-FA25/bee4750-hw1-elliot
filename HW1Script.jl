@@ -64,8 +64,17 @@ function WW_model(x1, x2)
 end
 
 #set x1 and x2 values
-x1 = [10, 20, 30, 40, 50]
-x2 = [60, 70, 40, 10, 50]
+n = 1000 # number of trials
+x1 = zeros(n)
+x2 = zeros(n)
+#d = Dirichlet(3,1)
+for i=1:n
+    d = Dirichlet(3,1)
+    vects = rand(d)
+    # seperate the x1 and x2 components and scale to 100
+    x1[i]= vects[1]*100
+    x2[i]= vects[2]*100
+end
 
 #calculate YUK and cost for random x1 and x2 values
 output = WW_model.(x1, x2)
